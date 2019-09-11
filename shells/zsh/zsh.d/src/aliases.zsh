@@ -10,6 +10,7 @@ alias news='googler -N --url-handler reader'
 alias zconf='nano ~/.zshrc'
 alias zalias='nano $ZCONF[ALIAS]'
 alias zup='source ~/.zshrc'
+alias zpg='nano $ZCONF[PLUGIN]'
 alias ztheme='nano $ZCONF[THEME]'
 ###############################
 #	  COLORLS

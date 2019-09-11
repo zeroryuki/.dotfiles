@@ -1,3 +1,12 @@
+if [ ! -d "${HOME}/.zplugin" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+fi
+
+# Load `zplugin`
+source "${ZPLGM[BIN_DIR]}/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+
 # Functions to make configuration less verbose
 zt() { zplugin ice wait"${1}" lucid               "${@:2}"; } # Turbo
 zi() { zplugin ice lucid                            "${@}"; } # Regular Ice
@@ -35,7 +44,7 @@ z snippet OMZ::plugins/$plg2/$plg2.plugin.zsh
 }
 
 # Theme
-zi pick'spaceship.zsh' compile'{lib/*,sections/*,tests/*.zsh}' atload'source $ZPLGM[HOME_DIR]/theme/default'
+zi pick'spaceship.zsh' compile'{lib/*,sections/*,tests/*.zsh}' atload'source $HOME/.zsh.d/theme/default'
 z denysdovhan/spaceship-prompt
 
 # Hub
