@@ -1,0 +1,21 @@
+export GH_HOME="${HOME}/Personal/Projects/github-clone"
+declare -A ZPLGM
+ZPLGM[BIN_DIR]="${GH_HOME}/zplugin"
+ZPLGM[HOME_DIR]="${HOME}/.zsh.d"
+declare -A ZCONF
+ZCONF[ALIAS]="${ZPLGM[HOME_DIR]}/src/aliases.zsh"
+ZCONF[PLUGIN]="${ZPLGM[HOME_DIR]}/src/zplugin.zsh"
+ZCONF[THEME]="${ZPLGM[HOME_DIR]}/theme/default"
+source "${ZPLGM[BIN_DIR]}/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+
+for file in "${ZPLGM[HOME_DIR]}/src/env.zsh" \
+	    "${ZPLGM[HOME_DIR]}/src/aliases.zsh" \
+	    "${ZPLGM[HOME_DIR]}/src/directory.zsh" \
+	    "${ZPLGM[HOME_DIR]}/src/history.zsh" \
+	    "${ZPLGM[HOME_DIR]}/src/zplugin.zsh" \
+	    "${ZPLGM[HOME_DIR]}/src/completions.zsh"
+do
+    [ -s "${file}" ] && source "${file}"
+done
