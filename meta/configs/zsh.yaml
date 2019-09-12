@@ -1,0 +1,6 @@
+- link:
+    ~/.zshrc        : shells/zsh/zshrc
+    ~/.zsh.d:
+       glob: true
+       path: shells/zsh/zsh.d/*
+
