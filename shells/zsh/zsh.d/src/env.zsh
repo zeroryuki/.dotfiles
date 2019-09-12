@@ -45,9 +45,9 @@ export PROJ="$HOME/Personal/Projects/myrepo/"
 
 export GH_HOME="${HOME}/Personal/Projects/github-clone"
 declare -A ZPLGM
-ZPLGM[BIN_DIR]="${GH_HOME}/zplugin"
 declare -A ZCONF
+ZPLGM[BIN_DIR]="${GH_HOME}/zplugin"
 ZCONF[ALIAS]="${HOME}/.zsh.d/src/aliases.zsh"
 ZCONF[PLUGIN]="${HOME}/.zsh.d/src/zplugin.zsh"
-ZCONF[THEME]="${HOME}/.zsh.d/theme/default"
+ZCONF[THEME]="${HOME}/.zsh.d/theme/p10k.zsh"
 source "${ZPLGM[BIN_DIR]}/zplugin.zsh"

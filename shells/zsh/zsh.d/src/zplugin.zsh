@@ -44,8 +44,13 @@ z snippet OMZ::plugins/$plg2/$plg2.plugin.zsh
 }
 
 # Theme
-zi pick'spaceship.zsh' compile'{lib/*,sections/*,tests/*.zsh}' atload'source $HOME/.zsh.d/theme/default'
-z denysdovhan/spaceship-prompt
+# Spaceship
+#zi pick'spaceship.zsh' compile'{lib/*,sections/*,tests/*.zsh}' atload'source $HOME/.zsh.d/theme/default'
+#z denysdovhan/spaceship-prompt
+
+# Powerlevel10k
+zi pick'powerlevel10k.zsh-theme' atload'source $HOME/.zsh.d/theme/p10k.zsh'
+z romkatv/powerlevel10k
 
 # Hub
 zi as"command" cp"hub.zsh_completion -> _hub" atinit"zpcompinit" atpull'!git reset --hard'
