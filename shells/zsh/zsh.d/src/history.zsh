@@ -2,7 +2,7 @@
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
-setopt correct_all 		# autocorrect commands
+#setopt correct_all 		# autocorrect commands
 setopt autocd                   # Allow changing directories without `cd`
 setopt auto_list 		# automatically list choices on ambiguous completion
 setopt auto_menu 		# automatically use menu completion

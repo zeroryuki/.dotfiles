@@ -3,7 +3,7 @@ compdef _gnu_generic tr lsb_release
 
 # Suggestions descriptions.
 # Fuzzy matching of completions for when you mistype them:
-zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*' completer _complete _match
 zstyle ':completion:*:match:*' original only
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3>7?7:($#PREFIX+$#SUFFIX)/3))numeric)'
 
