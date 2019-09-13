@@ -3,7 +3,13 @@ for file in "${HOME}/.zsh.d/src/env.zsh" \
 	    "${HOME}/.zsh.d/src/directory.zsh" \
 	    "${HOME}/.zsh.d/src/history.zsh" \
 	    "${HOME}/.zsh.d/src/zplugin.zsh" \
-	    "${HOME}/.zsh.d/src/completions.zsh"
+	    "${HOME}/.zsh.d/src/completions.zsh" \
+	    "${HOME}/.fzf/shell/completion.zsh" \
+            "$(dirname $(gem which colorls))/tab_complete.sh"
 do
     [ -s "${file}" ] && source "${file}"
+done
+
+for file in ~/.zsh.d/functions/*.zsh; do
+	source $file
 done
