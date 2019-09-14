@@ -1,0 +1,4 @@
+- link:
+    ~/.Xresources        : X/Xresources
+    ~/.XresourcesMonitor : X/XresourcesMonitor
+    ~/.xprofile          : X/xprofile

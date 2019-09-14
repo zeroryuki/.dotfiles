@@ -1,0 +1,15 @@
+!-----------------------------------------------------------------------
+!                         Xft settings
+!-----------------------------------------------------------------------
+
+Xft.dpi:                96
+Xft.autohint:           false
+Xft.antialias:          true
+Xft.rgba:               rgb
+Xft.hinting:            true
+Xft:hintstyle:          hintslight       
+Xft.lcdfilter:          lcddefault
+
+
+!! Cursor
+Xcursor.theme:             Breeze-Hacked
