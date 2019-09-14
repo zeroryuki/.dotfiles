@@ -1,0 +1,5 @@
+- link:
+    ~/.icons:
+       glob: true
+       path: ui/icons/*
+
