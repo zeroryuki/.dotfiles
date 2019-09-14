@@ -1,0 +1,227 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+	kitty
+
+ctrl + alt + b
+        /home/z3r0/bin/hyper
+
+# GNOME System Monitor
+ctrl + shift + Escape
+	gnome-system-monitor
+
+# program launcher
+#super + @space
+#	dmenu_run -b -w 1346 -x 10 -y 10 -lh 30 -nf "#a9aeb4" -sb "#0f8182" -sf "#f7f7f7" -nb "#080a11" -fn "Iosevka-8"
+
+# program launcher
+if `xrandr -q | grep -q "HDMI1 connected"`
+then
+super + d
+        dmenu_run -b -f -i -p "RUN"  -nf "#cfdceb" -sb "#cd222f" -sf "#f7f7f7" -nb "#0a0f14" -fn "Iosevka Slab-9"
+else
+super + d
+        dmenu_run -b -nf "#a9aeb4" -sb "#B21818" -sf "#f7f7f7" -nb "#080a11" -fn "Fixed-8"
+fi
+
+super + shift + d
+        dmenu_extended_run
+
+# rofi -show run -lines 10 -padding 300 -opacity "100" -font "Roboto Mono 15" -width 1368 -separator-style "none" -hide-scrollbar -color-window "argb:dd000000, argb:0002b36, argb:7bffffff" -color-normal "argb:0ffffff, #ffffff, argb:0eee8d5, #ffffff, #000000" -color-active "argb:0fdf6e3, #268bd2, argb:0eee8d5, #268bd2, #fdf6e3" -color-urgent "argb:0fdf6e3, #dc322f, argb:0eee8d5, #dc322f, #fdf6e3"	
+
+super + shift + space
+	rofi -modi run,drun -show drun -location 1 -xoffset 10 -yoffset 32 -line-padding 4 -columns 1 -width 20 -lines 10 -padding 25 -hide-scrollbar -show-icons -drun-icon-theme "Papirus"
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd; \
+	notify-send "sxhkd config reloaded"
+
+super + shift + p
+	killall -q polybar; \
+	polybar -r top && polybar -r bottom
+#
+# bspwm hotkeys
+#
+
+# quit bspwm normally
+super + alt + Escape
+	bspc quit
+
+# close and kill
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# if the current node is automatic, send it to the last manual, otherwise pull the last leaf
+super + y
+	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+
+# swap the current node and the biggest node
+super + g
+	bspc node -s biggest
+
+#
+# state/flags
+#
+
+# set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+super + ctrl + {x,y,z}
+	bspc node -g {locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+# super + {p,b,comma,period}
+# 	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous node
+alt + {Tab,_}
+	bspc node -f {next,prev}
+
+# focus the next/previous desktop
+super + {Left,Right}
+	bspc desktop -f {prev,next}
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# focus the next/previous node in the same window
+super + {comma,period}
+    bspc node -f {next,prev}.local
+
+#
+# preselect
+#
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + shift + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+super + {equal,minus} 
+	bspc config window_gap $(( $(bspc config window_gap) {+,-} 5 ))
+
+super + ctrl + {Left,Right,Up,Down}
+    bspc node @focused:/ --rotate {270,90,180,180}
+
+# Screenshots
+Print 
+	shutter -f -o ~/Pictures/%y-%m-%d_$w_$h.png -e -c -n; \
+	notify-send "Screenshot saved"
+
+ctrl + Print
+	gnome-screenshot -c; \
+	notify-send "Screenshot copied to clipboard"
+
+shift + Print
+	gnome-screenshot -a; \
+	notify-send "Screenshot saved"
+
+ctrl + shift + Print
+	gnome-screenshot -ac; \
+	notify-send "Screenshot copied to clipboard"
+
+
+#firefox
+ctrl + alt + m
+        /usr/bin/google-chrome-stable
+#Telegram
+ctrl + alt + T
+        /home/z3r0/Telegram/Telegram -- %u
+
+# power options
+super + F9
+        . $HOME/.config/popups/power/power
+
+# kill screencast
+super + x
+	pkill -f 'x11grab'
+
+#hibernate
+ctrl + alt + exc
+	systemctl hibernate
+
+#xwinrap
+ctrl + alt + x
+	xwinwrap -g 2300x1400 -ov -- mpv -wid WID -loop ~/Videos/code.mp4
+
+ctrl + alt + z
+	killall xwinwrap
+#volume
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +2%
+
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -2%
+
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+#brightness
+XF86MonBrightnessDown
+	xbacklight -dec 5
+XF86MonBrightnessUp
+	xbacklight -inc 5
+
+
+# App
+
+super + ctrl + t
+        $HOME/.config/popups/todo/todo
+
+ctrl + alt + g
+	gitkraken
