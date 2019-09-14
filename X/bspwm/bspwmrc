@@ -1,0 +1,101 @@
+#! /bin/sh
+#                                                                      
+#  ▄▄                                                                   
+#  ██                                                                   
+#  ██▄███▄   ▄▄█████▄  ██▄███▄  ██      ██ ████▄██▄   ██▄████   ▄█████▄ 
+#  ██▀  ▀██  ██▄▄▄▄ ▀  ██▀  ▀██ ▀█  ██  █▀ ██ ██ ██   ██▀      ██▀    ▀ 
+#  ██    ██   ▀▀▀▀██▄  ██    ██  ██▄██▄██  ██ ██ ██   ██       ██       
+#  ███▄▄██▀  █▄▄▄▄▄██  ███▄▄██▀  ▀██  ██▀  ██ ██ ██   ██       ▀██▄▄▄▄█ 
+#  ▀▀ ▀▀▀     ▀▀▀▀▀▀   ██ ▀▀▀     ▀▀  ▀▀   ▀▀ ▀▀ ▀▀   ▀▀         ▀▀▀▀▀  
+#                      ██                                               
+#    
+#                                     Config by: https://github.com/cOb4l7
+#
+
+# polybar
+$HOME/.config/polybar/polybar-5/scripts/barstart
+
+# Check if the monitor is connected
+if `xrandr -q | grep -q "HDMI1 connected"`
+then
+        # Set border color
+        BLK="#111920"
+
+        #
+        # Monitor & Destop Settings
+        # 
+
+        bspc monitor LVDS1 -d    
+        bspc monitor HDMI1 -d     ା 
+        bspc config -m LVDS1 window_gap           10
+        bspc config -m LVDS1 border_width         4
+        bspc config -m HDMI1 window_gap           10
+        bspc config -m HDMI1 border_width         4
+
+        #
+        # Global Settings
+        #
+
+        bspc config -m LVDS1 normal_border_color   "$BLK"
+        bspc config -m LVDS1 active_border_color   "$BLK"
+        bspc config -m LVDS1 focused_border_color  "$BLK"
+        bspc config -m LVDS1 urgent_border_color   "$BLK"
+        bspc config -m LVDS1 presel_border_color   "$BLK"
+        bspc config -m LVDS1 top_padding  35
+
+	bspc config -m HDMI1 normal_border_color   "$BLK"
+	bspc config -m HDMI1 active_border_color   "$BLK"
+	bspc config -m HDMI1 focused_border_color  "$BLK"
+	bspc config -m HDMI1 urgent_border_color   "$BLK"
+	bspc config -m HDMI1 presel_border_color   "$BLK"
+	bspc config -m HDMI1 top_padding  35
+else
+        BLK="#101010"
+        #
+        # Monitor & Destop Settings
+        # 
+
+        bspc monitor LVDS1 -d 1 2 3 4 5
+        bspc config window_gap            10
+        bspc config border_width          4
+	bspc config -m LVDS1 normal_border_color   "$BLK"
+	bspc config -m LVDS1 active_border_color   "$BLK"
+	bspc config -m LVDS1 urgent_border_color   "$BLK"
+	bspc config -m LVDS1 presel_border_color   "$BLK"
+	bspc config -m LVDS1 top_padding 30
+	bspc config -m LVDS1 bottom_padding 25
+
+	#
+        # Global Settings
+        #
+
+        bspc config normal_border_color   "$BLK"
+        bspc config focused_border_color  "$BLK"
+        bspc config urgent_border_color   "$BLK"
+        bspc config presel_border_color   "$BLK"
+
+fi
+
+# Global Settings
+
+bspc config split_ratio           0.50
+bspc config borderless_monocle    false
+bspc config gapless_monocle       true
+
+#  Rule Settings
+
+# start apps in specific workspace
+bspc rule -a vivaldi-stable desktop='^1' follow=on
+bspc rule -a kitty desktop='^2' follow=on
+bspc rule -a code desktop='^3' follow=on
+bspc rule -a gitkraken desktop='^5' follow=on
+
+# apps in float mode
+bspc rule -a Nitrogen state=floating focus=on
+bspc rule -a feh state=floating focus=on
+bspc rule -a Lxappearance state=floating focus=on
+
+#   Start Misc Programs
+
+# compton
+compton -b --config $HOME/.config/compton/compton.conf
