@@ -12,3 +12,6 @@
 
 ### vscode
 ![](screen5.png)
+
+### ncmpcpp
+![](screen6.png)
