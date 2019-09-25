@@ -3,7 +3,7 @@ if [ ! -d "${HOME}/.zplugin" ]; then
 fi
 
 # Load `zplugin`
-source "${ZPLGM[BIN_DIR]}/zplugin.zsh"
+source ~/.zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 

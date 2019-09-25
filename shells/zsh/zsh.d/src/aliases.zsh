@@ -12,6 +12,8 @@ alias zalias='nano $ZCONF[ALIAS]'
 alias zup='source ~/.zshrc'
 alias zpg='nano $ZCONF[PLUGIN]'
 alias ztheme='nano $ZCONF[THEME]'
+alias zenv='nano $ZCONF[ENV]'
+alias gh='cd $GH_HOME/'
 ###############################
 #	  COLORLS
 ##############################
