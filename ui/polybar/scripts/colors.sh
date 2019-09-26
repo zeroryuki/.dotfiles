@@ -1,9 +1,6 @@
 #!/bin/bash
 
-## Author : Aditya Shakya
-## Github : adi1090x
-
-PDIR="$HOME/.config/polybar/polybar-5"
+PDIR="$HOME/.config/polybar"
 
 PID1="$(pgrep -u $UID -x polybar | head -n 1)"
 PID2="$(pgrep -u $UID -x polybar | tail -n 1)"

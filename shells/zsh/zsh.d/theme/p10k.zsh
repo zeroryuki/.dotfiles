@@ -51,30 +51,30 @@ fi
       status                  # exit code of the last command
       command_execution_time  # duration of the last command
       background_jobs         # presence of background jobs
-      virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
-      anaconda                # conda environment (https://conda.io/)
-      pyenv                   # python environment (https://github.com/pyenv/pyenv)
-      nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
-      nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
-      nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
-      # node_version          # node.js version
+      # virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
+      # anaconda                # conda environment (https://conda.io/)
+      # pyenv                   # python environment (https://github.com/pyenv/pyenv)
+      # nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
+      # nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
+      # nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
+      node_version          # node.js version
       # go_version            # go version (https://golang.org)
       # rust_version          # rustc version (https://www.rust-lang.org)
-      rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
+      # rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
       rvm                     # ruby version from rvm (https://rvm.io)
-      kubecontext             # current kubernetes context (https://kubernetes.io/)
-      terraform               # terraform workspace (https://www.terraform.io)
-      context                 # user@host
-      nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
+      # kubecontext             # current kubernetes context (https://kubernetes.io/)
+      # terraform               # terraform workspace (https://www.terraform.io)
+      # nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
       ranger                  # ranger shell (https://github.com/ranger/ranger)
       # ram                   # free RAM
       # load                  # CPU load
       time                    # current time
+      context
       # =========================[ Line #2 ]=========================
       newline
       # public_ip             # public IP address
       # proxy                 # system-wide http/https/ftp proxy
-      # battery               # internal battery
+      battery               # internal battery
       # example               # example user-defined segment (see prompt_example function below)
   )
 
@@ -464,10 +464,12 @@ fi
   # typeset -g POWERLEVEL9K_LOAD_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ####################################[ context: user@host ]####################################
+  # typeset -g POWERLEVEL9K_ALWAYS_SHOW_USER=true
+  # typeset -g DEFAULT_USER="$(whoami)"
   # Default context color.
   typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=180
   # Default context format: %n is username, %m is hostname.
-  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n%f at %180F%m'
+  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n%f'
 
   # Context color when running with privileges.
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=178
@@ -475,7 +477,7 @@ fi
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%n%f at %227F%m'
 
   # Don't show context unless running with privileges or in SSH.
-  typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
+  # typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
 
   # Custom icon.
   # typeset -g POWERLEVEL9K_CONTEXT_VISUAL_IDENTIFIER_EXPANSION='⭐'

@@ -1,4 +1,4 @@
-export GITHUB_TOKEN=""
+export GITHUB_TOKEN="2a4f8d07cbfcfc65e49615d010c0875dd6f70945"
 export GIT_TERMINAL_PROMPT=1
 
 export LS_COLORS="$(vivid generate molokai)"
@@ -19,7 +19,6 @@ export PATH="/home/z3r0/perl5/bin${PATH:+:${PATH}}"
 # DIR
 export GH_HOME="$HOME/Personal/Projects/github-clone"
 export XDG_DATA_HOME="$HOME/.config"
-export PERLBREW_ROOT="/usr/lib/perl5/perlbrew"
 export ANDROID_HOME="/opt/android-sdk"
 export GOPATH="$HOME/go"
 export TASKRC="$HOME/.config/task/taskrc"
@@ -36,10 +35,8 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap 
 export FZF_CTRL_T_OPTS="--preview '(bat {} || tree -C {}) 2> /dev/null | head -200'"
 
 # HASH
-declare -A ZPLGM
 declare -A ZCONF
-ZPLGM[BIN_DIR]="${GH_HOME}/zplugin"
 ZCONF[ALIAS]="${HOME}/.zsh.d/src/aliases.zsh"
 ZCONF[PLUGIN]="${HOME}/.zsh.d/src/zplugin.zsh"
 ZCONF[THEME]="${HOME}/.zsh.d/theme/p10k.zsh"
-source "${ZPLGM[BIN_DIR]}/zplugin.zsh"
+ZCONF[ENV]="${HOME}/.zsh.d/src/env.zsh"
