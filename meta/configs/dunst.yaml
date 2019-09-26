@@ -1,0 +1,5 @@
+- link:
+    ~/.config/dunst:
+       glob: true
+       path: ui/dunst/*
+

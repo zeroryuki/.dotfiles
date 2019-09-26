@@ -3,14 +3,15 @@ if [ ! -d "${HOME}/.zplugin" ]; then
 fi
 
 # Load `zplugin`
-source "${ZPLGM[BIN_DIR]}/zplugin.zsh"
+source ~/.zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 # Functions to make configuration less verbose
 zt() { zplugin ice wait"${1}" lucid               "${@:2}"; } # Turbo
 zi() { zplugin ice lucid                            "${@}"; } # Regular Ice
-zl()  { [ -z $2 ] && zplugin light "${@}" || zplugin "${@}"; } # zplugin
+zl() { [ -z $2 ] && zplugin light "${@}" || zplugin "${@}"; } # zplugin
+zd() { zplugin load                                 "${@}"; }
 
 zt 0a
 zl snippet OMZ::lib/clipboard.zsh
@@ -54,8 +55,15 @@ zi pick'powerlevel10k.zsh-theme' atload'source $HOME/.zsh.d/theme/p10k.zsh'
 zl romkatv/powerlevel10k
 
 # Hub
-zi as"command" cp"hub.zsh_completion -> _hub" atinit"zpcompinit" atpull'!git reset --hard'
-zl snippet https://github.com/github/hub/blob/master/etc/hub.zsh_completion
+zi as"program" cp"etc/hub.zsh_completion -> _hub" pick"bin/hub" atinit"zpcompinit" atpull'!git reset --hard' make"install prefix=~/bin"
+zl github/hub
+
+zt 0b as"command" from"gh-r";         zd junegunn/fzf-bin
+zt 0b as"command" pick"bin/fzf-tmux"; zd junegunn/fzf
+# Create and bind multiple widgets using fzf
+zt 0a multisrc"shell/{completion,key-bindings}.zsh" \
+        id-as"junegunn/fzf_completions" pick"/dev/null"
+    zd junegunn/fzf
 
 zt 0b has'git'
 zl wfxr/forgit
@@ -63,7 +71,7 @@ zl wfxr/forgit
 zt 0b pick'autopair.zsh' nocompletions
 zl hlissner/zsh-autopair
 
-zt 0a blockf atpull'zplugin creinstall -q .'
+zt 0a blockf
 zl zsh-users/zsh-completions
 
 zt 0c atload'bindkey "^[[A" history-substring-search-up; bindkey "^[[B" history-substring-search-down'
