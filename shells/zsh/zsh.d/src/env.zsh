@@ -1,4 +1,4 @@
-export GITHUB_TOKEN="2a4f8d07cbfcfc65e49615d010c0875dd6f70945"
+export GITHUB_TOKEN="$(pass github/hub)"
 export GIT_TERMINAL_PROMPT=1
 
 export LS_COLORS="$(vivid generate molokai)"
