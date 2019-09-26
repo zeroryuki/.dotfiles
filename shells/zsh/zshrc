@@ -5,6 +5,7 @@ for file in "${HOME}/.zsh.d/src/env.zsh" \
 	    "${HOME}/.zsh.d/src/zplugin.zsh" \
 	    "${HOME}/.zsh.d/src/completions.zsh" \
 	    "${HOME}/.fzf/shell/completion.zsh" \
+	    "${HOME}/.fzf/shell/key-bindings.zsh" \
             "$(dirname $(gem which colorls))/tab_complete.sh"
 do
     [ -s "${file}" ] && source "${file}"
