@@ -12,7 +12,7 @@
 !                         Xft settings
 !-----------------------------------------------------------------------
 
-Xft.dpi:                140
+Xft.dpi:                96
 Xft.autohint:           false
 Xft.antialias:          true
 Xft.rgba:               rgb
@@ -22,3 +22,4 @@ Xft.lcdfilter:          lcddefault
 
 !! Cursor
 Xcursor.theme:             Breeze-Hacked
+#include "/home/z3r0/.cache/wal/colors.Xresources"

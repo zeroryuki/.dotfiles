@@ -13,6 +13,7 @@ amixer sset Speaker mute
 # Set monitor if connected
 $HOME/bin/externalMonitor
 
+export PATH="$PATH:$HOME/bin"
 # Load keybind
 sxhkd &
 

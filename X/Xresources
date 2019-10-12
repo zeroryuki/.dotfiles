@@ -2,14 +2,48 @@
 !                         Xft settings
 !-----------------------------------------------------------------------
 
-Xft.dpi:                96
+Xft.dpi:                94
 Xft.autohint:           false
 Xft.antialias:          true
 Xft.rgba:               rgb
 Xft.hinting:            true
-Xft:hintstyle:          hintslight       
+Xft:hintstyle:          hintslight
 Xft.lcdfilter:          lcddefault
 
+URxvt.internalBorder:    15
+URxvt.externalBorder:    15
+!URxvt.lineSpace:        0
+!urxvt*shading:          30
+URxvt.depth:             32
+URxvt.saveLines:         10000
+URxvt*geometry:          96x30
+URxvt*terminalName:      rxvt-unicode-256color
+URxvt*visualBell:        false
+
+!! Scrollbar
+URxvt.scrollBar:          false
+URxvt.scrollBar_right:    false
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle:        rxvt
+URxvt*scrollTtyOutput:    false
+URxvt*scrollWithBuffer:   true
+URxvt*scrollTtyKeypress:  true
+
+! fonts
+URxvt*letterSpace: 	    		0
+URxvt.lineSpace: 				0
+!Xft.size:						10
+URxvt*font:                 	xft:Fira Code Light:regular:size=10
+URxvt*imFont:               	xft:Iosevka:regular:size=10
+URxvt*boldFont:             	xft:Iosevka:bold:size=10
+URxvt*italicFont:           	xft:Iosevka:italic:size=10
+URxvt*boldItalicFont:     		xft:Iosevka:regular:size=10
+! run :.!fc-list | grep <font-name>
+
+! perl extensions
+URxvt.perl-ext-common:  default,clipboard,url-select,keyboard-select
+!URxvt.perl-ext-common:  default,clipboard,url-select,keyboard-select,tabbed
 
 !! Cursor
 Xcursor.theme:             Breeze-Hacked
+#include "/home/z3r0/.cache/wal/colors.Xresources"
