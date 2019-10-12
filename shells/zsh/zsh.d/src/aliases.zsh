@@ -14,7 +14,9 @@ alias zpg='nano $ZCONF[PLUGIN]'
 alias ztheme='nano $ZCONF[THEME]'
 alias zenv='nano $ZCONF[ENV]'
 alias gh='cd $GH_HOME/'
-
+alias emo='emojify'
+alias pwgen='pwgen -cnys 60 1'
+alias icat='kitty +kitten icat'
 ###############################
 #	  COLORLS
 ##############################
