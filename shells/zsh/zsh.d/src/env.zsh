@@ -27,6 +27,7 @@ export PERL_LOCAL_LIB_ROOT="/home/z3r0/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL
 export PERL_MB_OPT="--install_base \"/home/z3r0/perl5\""
 export PERL_MM_OPT="INSTALL_BASE=/home/z3r0/perl5"
 export PROJ="$HOME/Personal/Projects/myrepo/"
+export CTF="$HOME/Personal/Projects/ctf"
 
 export PAGER=bat
 export GTAGSLABEL=pygments
