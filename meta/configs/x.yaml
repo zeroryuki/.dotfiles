@@ -1,4 +1,4 @@
 - link:
-    ~/.Xresources        : X/Xresources
-    ~/.XresourcesMonitor : X/XresourcesMonitor
-    ~/.xprofile          : X/xprofile
+    ~/.Xresources        : display/xorg/Xresources
+    ~/.XresourcesMonitor : display/xorg/XresourcesMonitor
+    ~/.xprofile          : display/xorg/xprofile
