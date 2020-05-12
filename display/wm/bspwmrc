@@ -63,14 +63,14 @@ else
         # Monitor & Destop Settings
         # 
 
-        bspc monitor LVDS1 -d 1 2 3 4 5 6
+        bspc monitor LVDS1 -d Web Term FM Editor Social Git
         bspc config window_gap            10
         bspc config border_width          1
 	bspc config -m LVDS1 normal_border_color   "$BLK"
 	bspc config -m LVDS1 active_border_color   "$BLK"
 	bspc config -m LVDS1 urgent_border_color   "$BLK"
 	bspc config -m LVDS1 presel_border_color   "$BLK"
-	bspc config -m LVDS1 top_padding 30
+	bspc config -m LVDS1 top_padding 0
 	bspc config -m LVDS1 bottom_padding 25
 
 	#
@@ -100,15 +100,17 @@ bspc config focus_follows_pointer true
 #  Rule Settings
 
 # start apps in specific workspace
-bspc rule -a Vivaldi-stable desktop='^1' follow=on
+bspc rule -a Vivaldi-stable desktop='^1' follow=on state=floating rectangle=1364x700+0+0
 bspc rule -a kitty desktop='^2' follow=on
 bspc rule -a code-oss desktop='^3' follow=on
 bspc rule -a URxvt desktop='^4' follow=on
 bspc rule -a Ncmpcpp desktop='^4' follow=on
-bspc rule -a Ranger desktop='^4' follow=on
+bspc rule -a Ranger desktop='^4' follow=on state=floating rectangle=1065x538+150+84
 bspc rule -a Newsboat desktop='^4' follow=on
 bspc rule -a Neomutt desktop='^4' follow=on state=floating focus=on center=true rectangle=1080+240+150+40
 bspc rule -a gitkraken desktop='^5' follow=on
+bspc rule -a VirtualBox desktop='^6' follow=on state=floating focus=on
+bspc rule -a mpv desktop='^6' follow=on state=floating focus=on rectangle=1364x700+0+0
 
 # apps in float mode
 bspc rule -a URxvt state=floating focus=on
@@ -122,5 +124,5 @@ bspc rule -a Ranger state=floating focus=on
 
 #   Start Misc Programs
 
-# compton
-compton -b --config $HOME/.config/compton/compton.conf
+# picom
+picom --experimental-backends

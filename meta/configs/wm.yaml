@@ -1,0 +1,3 @@
+- link:
+    ~/.config/bspwm/bspwmrc        : display/wm/bspwmrc
+    ~/.config/sxhkd/sxhkdrc        : display/wm/sxhkdrc
