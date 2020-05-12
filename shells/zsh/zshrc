@@ -1,17 +1,7 @@
-for file in "${HOME}/.zsh.d/src/env.zsh" \
-	    "${HOME}/.zsh.d/src/aliases.zsh" \
-	    "${HOME}/.zsh.d/src/directory.zsh" \
-	    "${HOME}/.zsh.d/src/history.zsh" \
-	    "${HOME}/.zsh.d/src/zplugin.zsh" \
-	    "${HOME}/.zsh.d/src/completions.zsh" \
-	    "${HOME}/.fzf/shell/completion.zsh" \
-	    "${HOME}/.fzf/shell/key-bindings.zsh" \
-            "$(dirname $(gem which colorls))/tab_complete.sh"
-do
-    [ -s "${file}" ] && source "${file}"
-done
+source	    "/usr/share/rvm/scripts/rvm"
+source $(dirname $(gem which colorls))/tab_complete.sh
 
-for file in ~/.zsh.d/functions/*.zsh; do
-	source $file
+for file in ~/.zsh.d/{functions,src}/*.zsh; do
+	[ -s "${file}" ] && source "${file}"
 done
 (cat ~/.cache/wal/sequences &)
