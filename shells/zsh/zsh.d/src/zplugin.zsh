@@ -45,14 +45,16 @@ zi if'[[ -n "$commands[$plg2]" ]]'
 zl snippet OMZ::plugins/$plg2/$plg2.plugin.zsh
 }
 
+# Venom
+zt 0a atload"zpcompinit"
+zl snippet https://gist.githubusercontent.com/zeroryuki/6b413f60240bc6f844db72747afdd43e/raw/79acfc95109ad02f76b9181b3516638286a267e7/_msfvenom
+
 # Theme
-# Spaceship
-#zi pick'spaceship.zsh' compile'{lib/*,sections/*,tests/*.zsh}' atload'source $HOME/.zsh.d/theme/default'
-#z denysdovhan/spaceship-prompt
 
 # Powerlevel10k
 zi pick'powerlevel10k.zsh-theme' atload'source $HOME/.zsh.d/theme/p10k.zsh'
 zl romkatv/powerlevel10k
+#zplugin ice depth=1; zplugin light romkatv/powerlevel10k
 
 # Hub
 zi as"program" cp"etc/hub.zsh_completion -> _hub" pick"bin/hub" atinit"zpcompinit" atpull'!git reset --hard' make"install prefix=~/bin"
