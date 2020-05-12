@@ -1,0 +1,5 @@
+- link:
+    ~/.config/polybar:
+       glob: true
+       path: ui/polybar-1/*
+
