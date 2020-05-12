@@ -1,0 +1,115 @@
+set -e
+
+BASE_CONFIG="base"
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTBOT_DIR="dotbot"
+DOTBOT_BIN="bin/dotbot"
+CONFIG_SUFFIX=".yaml"
+CONFIG_DIR="configs"
+META_DIR="meta"
+PROFILES_DIR="profiles"
+
+# Header logging
+e_header() {
+    printf "$(tput setaf 38)→ %s$(tput sgr0)\n" "$@"
+}
+
+# Success logging
+e_success() {
+    printf "$(tput setaf 76)✔ %s$(tput sgr0)\n" "$@"
+}
+
+# Error logging
+e_error() {
+    printf "$(tput setaf 1)✖ %s$(tput sgr0)\n" "$@"
+}
+
+# Warning logging
+e_warning() {
+    printf "$(tput setaf 3)! %s$(tput sgr0)\n" "$@"
+}
+
+installer_help() {
+
+cat <<EOT
+------------------------------------------------------------------------------
+INSTALLER - A shortcut to manage my .dotfiles
+------------------------------------------------------------------------------
+Usage: ./installer [options] {config,profile}
+Options:
+  -h, --help        output instructions
+  -p, --profile     install config base on profile selections
+  -c, --single	    install single config
+Example:
+  ./installer -s zsh
+------------------------------------------------------------------------------
+EOT
+
+}
+
+update_dotbot() {
+   if (ping -4 -c 1 google.com) &>/dev/null; then
+     e_header "Updating Dotbot"
+     git -C "${META_DIR}/${DOTBOT_DIR}" submodule sync --quiet --recursive
+     git submodule update --init --recursive "${META_DIR}/${DOTBOT_DIR}"
+     e_success "Updating done"
+   else
+     e_warning "No connection, continue with current Dotbot"
+   fi
+}
+
+runner() {
+    e_header "Installing config"
+    configFile="$(mktemp)" ; echo -e "$(<"${BASE_DIR}/${META_DIR}/${BASE_CONFIG}${CONFIG_SUFFIX}")\n$(<"${BASE_DIR}/${META_DIR}/${CONFIG_DIR}/${config}${CONFIG_SUFFIX}")" > "$configFile"
+    "${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASE_DIR}" -c "$configFile" ; rm -f "$configFile"
+    e_success "Done Installing"
+}
+
+install_single() {
+   cd "${BASE_DIR}"
+   update_dotbot
+
+   for config in ${2}; do
+     runner
+   done
+}
+
+install_profile() {
+   cd "${BASE_DIR}"
+   update_dotbot
+
+   while IFS= read -r config; do
+	CONFIGS+=" ${config}"
+   done < "${META_DIR}/${PROFILES_DIR}/$1"
+
+   shift
+
+   echo ${CONFIGS}
+
+   for config in ${CONFIGS} ${2}; do
+	echo -e "\nConfigure $config"
+	runner
+   done
+}
+
+main() {
+
+    # Show help
+    if [[ "${1}" == "-h" || "${1}" == "--help" ]]; then
+        installer_help ${1}
+        exit
+    fi
+
+    # Create
+    if [[ "${1}" == "-p" || "${1}" == "--profile" ]]; then
+        install_profile $2
+        exit
+    fi
+
+    if [[ "${1}" == "-s" || "${1}" == "--single" ]]; then
+        install_single $*
+        exit
+    fi
+}
+
+main $*
