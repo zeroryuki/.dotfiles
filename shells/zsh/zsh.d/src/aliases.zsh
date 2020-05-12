@@ -1,3 +1,4 @@
+alias CWD="$(pwd)"
 alias rs='reset'
 alias cari='grep -rnw './' -e '$1''
 alias checksda='mount | grep sda'
@@ -17,10 +18,19 @@ alias gh='cd $GH_HOME/'
 alias emo='emojify'
 alias pwgen='pwgen -cnys 60 1'
 alias icat='kitty +kitten icat'
+alias ss='searchsploit'
+alias ssx='searchsploit -x'
+alias ssp="python -m http.server"
+alias vpon='systemctl start openvpn-client@zero.service'
+alias vpof='systemctl stop openvpn-client@zero.service'
+alias vpr='systemctl restart openvpn-client@zero.service'
+alias vpst='systemctl status openvpn-client@zero.service'
+alias revsh='revshell $(ifconfig tun0 | grep "10.10" | cut -d " " -f 10) 31337'
+
 ###############################
 #	  COLORLS
 ##############################
-alias lc='colorls -A --sd'
+alias lc='colorls -lA --sd --report'
 
 ##############################
 #	TASKWARRIOR
