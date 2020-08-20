@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/z3r0/Pictures/bat.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#070707",
+        "foreground": "#dee7e8",
+        "cursor": "#dee7e8"
+    },
+    "colors": {
+        "color0": "#070707",
+        "color1": "#4D5D62",
+        "color2": "#68817F",
+        "color3": "#5B7A85",
+        "color4": "#6B8F99",
+        "color5": "#79B1C3",
+        "color6": "#9DB5BA",
+        "color7": "#dee7e8",
+        "color8": "#9ba1a2",
+        "color9": "#4D5D62",
+        "color10": "#68817F",
+        "color11": "#5B7A85",
+        "color12": "#6B8F99",
+        "color13": "#79B1C3",
+        "color14": "#9DB5BA",
+        "color15": "#dee7e8"
+    }
+}

@@ -1,0 +1,21 @@
+set $wallpaper /home/z3r0/Personal/Pictures/Wallpaper/htb1.jpeg
+
+set $background #0F171C
+set $foreground #9ec9d6
+
+set $color0 #0F171C
+set $color1 #E80707
+set $color2 #689529
+set $color3 #B7BD3A
+set $color4 #F0AA35
+set $color5 #1F6B9E
+set $color6 #A961A7
+set $color7 #9ec9d6
+set $color8 #6e8c95
+set $color9 #E80707
+set $color10 #689529
+set $color11 #B7BD3A
+set $color12 #F0AA35
+set $color13 #1F6B9E
+set $color14 #A961A7
+set $color15 #9ec9d6

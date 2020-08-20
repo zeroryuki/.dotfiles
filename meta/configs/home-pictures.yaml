@@ -1,0 +1,4 @@
+- link:
+    ~/Personal/Pictures:
+       glob: true
+       path: home/Pictures/*

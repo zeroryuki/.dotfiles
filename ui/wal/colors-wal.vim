@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/z3r0/Personal/Pictures/Wallpaper/htb1.jpeg"
+let background = "#0F171C"
+let foreground = "#9ec9d6"
+let cursor     = "#9ec9d6"
+
+" Colors
+let color0  = "#0F171C"
+let color1  = "#E80707"
+let color2  = "#689529"
+let color3  = "#B7BD3A"
+let color4  = "#F0AA35"
+let color5  = "#1F6B9E"
+let color6  = "#A961A7"
+let color7  = "#9ec9d6"
+let color8  = "#6e8c95"
+let color9  = "#E80707"
+let color10 = "#689529"
+let color11 = "#B7BD3A"
+let color12 = "#F0AA35"
+let color13 = "#1F6B9E"
+let color14 = "#A961A7"
+let color15 = "#9ec9d6"

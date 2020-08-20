@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/z3r0/Personal/Pictures/htb2.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0E161C",
+        "foreground": "#9ac8d8",
+        "cursor": "#9ac8d8"
+    },
+    "colors": {
+        "color0": "#0E161C",
+        "color1": "#AA4333",
+        "color2": "#6A9829",
+        "color3": "#ACBC31",
+        "color4": "#EDAA33",
+        "color5": "#1F6DA1",
+        "color6": "#A962A8",
+        "color7": "#9ac8d8",
+        "color8": "#6b8c97",
+        "color9": "#AA4333",
+        "color10": "#6A9829",
+        "color11": "#ACBC31",
+        "color12": "#EDAA33",
+        "color13": "#1F6DA1",
+        "color14": "#A962A8",
+        "color15": "#9ac8d8"
+    }
+}

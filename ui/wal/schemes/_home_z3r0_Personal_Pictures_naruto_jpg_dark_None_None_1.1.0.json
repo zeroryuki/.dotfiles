@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/z3r0/Personal/Pictures/naruto.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#040A0E",
+        "foreground": "#9dc1e0",
+        "cursor": "#9dc1e0"
+    },
+    "colors": {
+        "color0": "#040A0E",
+        "color1": "#084F6F",
+        "color2": "#B2532E",
+        "color3": "#DAA65B",
+        "color4": "#076691",
+        "color5": "#106290",
+        "color6": "#3679BF",
+        "color7": "#9dc1e0",
+        "color8": "#6d879c",
+        "color9": "#084F6F",
+        "color10": "#B2532E",
+        "color11": "#DAA65B",
+        "color12": "#076691",
+        "color13": "#106290",
+        "color14": "#3679BF",
+        "color15": "#9dc1e0"
+    }
+}

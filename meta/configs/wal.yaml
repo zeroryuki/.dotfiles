@@ -1,0 +1,5 @@
+- link:
+    ~/.cache/wal:
+       glob: true
+       path: ui/wal/*
+
