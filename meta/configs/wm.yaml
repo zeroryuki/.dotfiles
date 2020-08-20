@@ -1,3 +1,4 @@
 - link:
     ~/.config/bspwm/bspwmrc        : display/wm/bspwmrc
     ~/.config/sxhkd/sxhkdrc        : display/wm/sxhkdrc
+    ~/.config/picom/picom.conf     : ui/picom/picom.conf

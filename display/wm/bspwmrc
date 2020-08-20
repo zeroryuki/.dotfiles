@@ -15,7 +15,7 @@
 . "${HOME}/.cache/wal/colors.sh"
 
 # polybar
-$HOME/.local/bin/barstart
+$HOME/bin/barstart
 
 # Check if the monitor is connected
 if `xrandr -q | grep -q "HDMI1 connected"`
@@ -27,8 +27,8 @@ then
         # Monitor & Destop Settings
         # 
 
-        bspc monitor LVDS1 -d 1 2 3 4 5 6
-        bspc monitor HDMI1 -d 7 8 9
+        bspc monitor LVDS1 -d Web Term FM Editor Social Git
+        bspc monitor HDMI1 -d Web Term FM Editor Social Git
         bspc config -m LVDS1 window_gap           10
         bspc config -m LVDS1 border_width         1
         bspc config -m HDMI1 window_gap           10
@@ -54,7 +54,7 @@ then
 
 	bspc config normal_border_color "$color1"
         bspc config active_border_color "$color15"
-        bspc config focused_border_color "$color2"
+        bspc config focused_border_color "$color11"
         bspc config urgent_border_color  "$BLK"
         bspc config presel_feedback_color "$color1"
 else
@@ -71,15 +71,15 @@ else
 	bspc config -m LVDS1 urgent_border_color   "$BLK"
 	bspc config -m LVDS1 presel_border_color   "$BLK"
 	bspc config -m LVDS1 top_padding 0
-	bspc config -m LVDS1 bottom_padding 25
+	bspc config -m LVDS1 bottom_padding 10
 
 	#
         # Global Settings
         #
 
-	bspc config normal_border_color "$color1"
-	bspc config active_border_color "$color15"
-        bspc config focused_border_color "$color2"
+	bspc config normal_border_color "$color3"
+	bspc config active_border_color "$color0"
+        bspc config focused_border_color "$color11"
         bspc config urgent_border_color   "$BLK"
 	bspc config presel_feedback_color "$color1"
 
@@ -100,8 +100,8 @@ bspc config focus_follows_pointer true
 #  Rule Settings
 
 # start apps in specific workspace
-bspc rule -a Vivaldi-stable desktop='^1' follow=on state=floating rectangle=1364x700+0+0
-bspc rule -a kitty desktop='^2' follow=on
+bspc rule -a Vivaldi-stable desktop='^1' follow=on state=floating rectangle=1364x757+0+0
+bspc rule -a kitty desktop='^2' follow=on state=floating focus=on
 bspc rule -a code-oss desktop='^3' follow=on
 bspc rule -a URxvt desktop='^4' follow=on
 bspc rule -a Ncmpcpp desktop='^4' follow=on
@@ -111,12 +111,12 @@ bspc rule -a Neomutt desktop='^4' follow=on state=floating focus=on center=true 
 bspc rule -a gitkraken desktop='^5' follow=on
 bspc rule -a VirtualBox desktop='^6' follow=on state=floating focus=on
 bspc rule -a mpv desktop='^6' follow=on state=floating focus=on rectangle=1364x700+0+0
+bspc rule -a burp-startBurp desktop='^6' follow=on state=floating rectangle=1364x757+0+0
 
 # apps in float mode
 bspc rule -a URxvt state=floating focus=on
 bspc rule -a Nitrogen state=floating focus=on
 bspc rule -a feh state=floating focus=on
-bspc rule -a kitty state=floating focus=on
 bspc rule -a Ncmpcpp state=floating focus=on
 bspc rule -a Newsboat state=floating focus=on
 bspc rule -a Ranger state=floating focus=on

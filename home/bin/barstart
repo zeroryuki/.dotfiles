@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+sleep 1
+killall -q polybar
+
+while pgrep -x polybar >/dev/null; do sleep 2; done
+
+# Launch top bar
+#polybar -c /home/z3r0/.config/polybar/config.ini top 2> /dev/null &
+#polybar -c /home/z3r0/.config/polybar/config.ini bottom 2> /dev/null &
+
+polybar appsprime -c ~/.config/polybar/apps.ini &
+sleep 1
+hideIt.sh -N '^polybar-appsprime_LVDS1$' -S -p 1 -d right & disown
+polybar sysprime -c ~/.config/polybar/system.ini &
+sleep 1
+hideIt.sh -N '^polybar-sysprime_LVDS1$' -S -p 1 -d bottom & disown
+polybar cpusecond -c ~/.config/polybar/cpu.ini &
+sleep 1
+hideIt.sh --name 'openboxcpu' -S -p 1 -d bottom & disown
+polybar fssecond -c ~/.config/polybar/fs.ini &
+sleep 1
+hideIt.sh --name 'openboxfs' -S -p 1 -d bottom & disown
+polybar datesecond -c ~/.config/polybar/date.ini &
+sleep 1
+hideIt.sh --name 'openboxdate' -S -p 1 -d bottom & disown

@@ -1,0 +1,4 @@
+POST_TITLE="$1"
+MACHINE=$(curl -L "https://www.hackthebox.eu/api/machines/get/all/?api_token=$(pass HTB/token)" | jq '.[] | select(.name=='\"$POST_TITLE\"')')
+
+echo "$MACHINE"

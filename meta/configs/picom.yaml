@@ -1,0 +1,5 @@
+- link:
+    ~/.config/picom:
+       glob: true
+       path: ui/picom/*
+

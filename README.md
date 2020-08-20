@@ -1,17 +1,17 @@
 ### colorls & ranger 
-![](screen1.png)
+![](/postImg/screen1.png)
 
 ### rofi
-![](screen2.png)
+![](/postImg/screen2.png)
 
 ### nano
-![](screen3.png)
+![](/postImg/screen3.png)
 
 ### neofetch
-![](screen4.png)
+![](/postImg/screen4.png)
 
 ### vscode
-![](screen5.png)
+![](/postImg/screen5.png)
 
 ### ncmpcpp
-![](screen6.png)
+![](/postImg/screen6.png)

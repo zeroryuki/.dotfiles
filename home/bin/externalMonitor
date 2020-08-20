@@ -1,0 +1,40 @@
+#!/bin/bash
+# Author: https://github.com/zeroryuki
+# Description: Simple script to launch my external DELL Monitors
+#              connected to my laptop LenovoThinkpad
+
+# Check if any of the monitor is connected
+if `xrandr -q | grep -q "HDMI1 connected"`
+then
+        # Set Xresources
+        [[ -f $HOME/.XresourcesMonitor ]] && xrdb -merge $HOME/.XresourcesMonitor
+
+        # Set the X display
+        #xrandr --output LVDS1 --mode 1366x768 \
+        #       --rotate normal --dpi 180 --output HDMI1 --mode 1920x1080 \
+	#       --scale 0.71x0.71 --rotate normal --dpi 96 --primary --right-of LVDS1
+	xrandr --output LVDS1 --mode 1366x768 \
+	       --rotate normal --dpi 180 --output HDMI1 --mode 1920x1080i \
+               --scale 0.71x0.71 --rotate normal --dpi 96
+
+        sleep 1 
+
+        # Set wallpaper
+        nitrogen --restore --head=1 2> /dev/null & 
+        nitrogen --restore --head=2 2> /dev/null & 
+
+        # Start dunst
+        dunst -config $HOME/.config/dunst/dunstrcMonitor &
+
+else
+        # No monitor(s) present just do normal settings
+               # Set Xresources
+        [[ -f $HOME/.Xresources ]] && xrdb -merge $HOME/.Xresources
+
+        # set wallpaper
+        # feh --bg-scale Personal/Pictures/wp/code.jpg &
+	nitrogen --restore --head=2 2> /dev/null &
+        # Start dunst
+	#mpd $HOME/.config/ncmpcpp/mpd.conf
+        dunst --config $HOME/.config/dunst/dunstrc &
+fi

@@ -5,8 +5,9 @@ alias checksda='mount | grep sda'
 alias emu="$ANDROID_HOME/tools/emulator"
 alias pumpkin='sudo QT_X11_NO_MITSHM=1 wifi-pumpkin'
 alias pdf='epdfview'
+alias gos='googler -n 10 -t d10'
 alias yt='googler -w youtube.com --url-handler mpv $argv'
-alias so='googler -w stackoverflow.com (xsel)'
+alias so='googler -w stackoverflow.com'
 alias news='googler -N --url-handler reader'
 alias zconf='nano ~/.zshrc'
 alias zalias='nano $ZCONF[ALIAS]'
@@ -40,3 +41,4 @@ alias ti='task idea'
 alias tadd='task add'
 alias tp='task process'
 
+alias burp="java -noverify -javaagent:/home/z3r0/CTF/BurpSuite/pro/burploader.jar -jar /home/z3r0/CTF/BurpSuite/pro/burpsuite_pro_v2020.8.jar"

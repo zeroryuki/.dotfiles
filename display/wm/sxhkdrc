@@ -226,3 +226,8 @@ super + ctrl + t
 
 ctrl + alt + g
 	gitkraken
+
+# hide it
+
+alt {z,x,c,v,b}
+	hideIt.sh --name {openboxdate,openboxfs,openboxcpu,sysprime,appsprime} --toggle

@@ -1,0 +1,4 @@
+- link:
+    ~/.config/mutt:
+       glob: true
+       path: home/mutt/*

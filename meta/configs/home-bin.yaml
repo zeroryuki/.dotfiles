@@ -1,0 +1,4 @@
+- link:
+    ~/bin:
+       glob: true
+       path: home/bin/*
